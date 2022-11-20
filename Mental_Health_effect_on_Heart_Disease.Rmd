@@ -88,3 +88,10 @@ knitr::opts_chunk$set(
 
 options(scientific=T, digits = 3) 
 ```
+```{r setup, include=FALSE}
+setwd('/Users/admin/Documents/GitHub/6101_Project/')
+
+df = data.frame(read.csv('/Users/admin/Documents/GitHub/6101_Project/heart_2020_cleaned.csv'))
+
+lapply(df,function(x) { length(which(is.na(x)))})
+```
