@@ -158,6 +158,9 @@ table(df$SkinCancer)
 ```
 ```{r, results='markup'}
 
+#EDA
+
+
 Heart_Disease <- subset(df, HeartDisease ==1) 
 print(Heart_Disease)
 no_heart_disease <- subset(df, HeartDisease ==0)
@@ -209,6 +212,7 @@ ggplot(df, aes(x=MentalHealth, y=Smoking)) +
   labs(title="Mental Health ranking on Smoking Habit", x="MentalHealth", y = "Smoking")
 
 
+
 p<-ggplot(df, aes(x=Smoking, y=HeartDisease, color=Smoking)) +
   geom_bar(stat="identity", fill="white") +
   labs(title="Smoking Habit on Heart Disease", x="Smoking", y = "Heart Disease")+
@@ -223,9 +227,95 @@ df %>%
   mutate(freq = n / sum(n))
 
 #  frequency each combination occurs for stroke and heart disease 
+ggplot(df, aes(x=MentalHealth, y=Stroke)) + 
+  geom_boxplot( colour=c("#ff0000","#11cc11"), outlier.shape=8, outlier.size=4) +
+  labs(title="Mental Health ranking on Stroke", x="MentalHealth", y = "Stroke")
+
+
+
+p2<-ggplot(df, aes(x=Stroke, y=HeartDisease, color=Stroke)) +
+  geom_bar(stat="identity", fill="white") +
+  labs(title="Prevously Having a Stroke on Heart Disease", x="Stroke", y = "Heart Disease")+
+  scale_color_brewer(palette="Dark2") 
+  #+ scale_x_discrete(limits=c("No", "Yes")) not working for some reason 
+p2
+
 
 df %>% 
   group_by(Stroke, HeartDisease) %>%
   summarise(n = n()) %>%
   mutate(freq = n / sum(n))
+
+#  frequency each combination occurs for Difficulty Walking and heart disease 
+ggplot(df, aes(x=MentalHealth, y=DiffWalking)) + 
+  geom_boxplot( colour=c("#ff0000","#11cc11"), outlier.shape=8, outlier.size=4) +
+  labs(title="Mental Health ranking on Stroke", x="MentalHealth", y = "Difficulty Walking")
+
+
+
+p3<-ggplot(df, aes(x=DiffWalking, y=HeartDisease, color=DiffWalking)) +
+  geom_bar(stat="identity", fill="white") +
+  labs(title="Difficulty Walking on Heart Disease", x="Difficulty Walking", y = "Heart Disease")+
+  scale_color_brewer(palette="Dark2") 
+  #+ scale_x_discrete(limits=c("No", "Yes")) not working for some reason 
+p3
+
+df %>% 
+  group_by(DiffWalking, HeartDisease) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n))
+
+#  frequency each combination occurs for Alcohol drinking and heart disease 
+ggplot(df, aes(x=MentalHealth, y=AlcoholDrinking)) + 
+  geom_boxplot( colour=c("#ff0000","#11cc11"), outlier.shape=8, outlier.size=4) +
+  labs(title="Mental Health ranking on Alcohol", x="MentalHealth", y = "Alcohol")
+
+
+
+p4<-ggplot(df, aes(x=AlcoholDrinking, y=HeartDisease, color=AlcoholDrinking)) +
+  geom_bar(stat="identity", fill="white") +
+  labs(title="Alcohol Consumption on Heart Disease", x="Alcohol", y = "Heart Disease")+
+  scale_color_brewer(palette="Dark2") 
+  #+ scale_x_discrete(limits=c("No", "Yes")) not working for some reason 
+p4
+df %>% 
+  group_by(AlcoholDrinking, HeartDisease) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n))
+
+
+#  frequency each combination occurs for diabetic and heart disease 
+
+df %>% 
+  group_by(Diabetic, HeartDisease) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n))
+
+
+#  frequency each combination occurs for Physical Activity and heart disease 
+ggplot(df, aes(x=MentalHealth, y=PhysicalActivity)) + 
+  geom_boxplot( colour=c("#ff0000","#11cc11"), outlier.shape=8, outlier.size=4) +
+  labs(title="Mental Health ranking on Physical Ativity", x="MentalHealth", y = "Physical Activity")
+
+
+
+p5<-ggplot(df, aes(x=PhysicalActivity, y=HeartDisease, color=PhysicalActivity)) +
+  geom_bar(stat="identity", fill="white") +
+  labs(title="Physical Activity on Heart Disease", x="Alcohol", y = "Heart Disease")+
+  scale_color_brewer(palette="Dark2") 
+  #+ scale_x_discrete(limits=c("No", "Yes")) not working for some reason 
+p5
+df %>% 
+  group_by(PhysicalActivity, HeartDisease) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n))
+
+#  frequency each combination occurs for Asthma and heart disease 
+
+df %>% 
+  group_by(Asthma, HeartDisease) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n))
+
+
 ```
