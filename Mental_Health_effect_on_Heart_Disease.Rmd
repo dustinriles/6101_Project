@@ -209,13 +209,23 @@ ggplot(df, aes(x=MentalHealth, y=Smoking)) +
   labs(title="Mental Health ranking on Smoking Habit", x="MentalHealth", y = "Smoking")
 
 
-
-
-
 p<-ggplot(df, aes(x=Smoking, y=HeartDisease, color=Smoking)) +
   geom_bar(stat="identity", fill="white") +
   labs(title="Smoking Habit on Heart Disease", x="Smoking", y = "Heart Disease")+
   scale_color_brewer(palette="Dark2") 
   #+ scale_x_discrete(limits=c("No", "Yes")) not working for some reason 
 p
+
+#  frequency each combination occurs for smoking and heart disease 
+df %>% 
+  group_by(Smoking, HeartDisease) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n))
+
+#  frequency each combination occurs for stroke and heart disease 
+
+df %>% 
+  group_by(Stroke, HeartDisease) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n))
 ```
