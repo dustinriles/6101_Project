@@ -156,3 +156,66 @@ df$SkinCancer[df$SkinCancer == "No"] <- 0
 df$SkinCancer[df$SkinCancer == "Yes"] <- 1
 table(df$SkinCancer)
 ```
+```{r, results='markup'}
+
+Heart_Disease <- subset(df, HeartDisease ==1) 
+print(Heart_Disease)
+no_heart_disease <- subset(df, HeartDisease ==0)
+print(no_heart_disease)
+
+# Mental Health for heart_disease
+heart_disease_df_mental_health_1 <- ggplot(Heart_Disease, aes(x=MentalHealth)) + 
+ geom_histogram(aes(y=..density..), colour="black", fill="white")+
+ geom_density(alpha=.2, fill="#FF6666") +
+  labs(title = "Mental Health for people with Heart Disease")+
+  geom_vline(data=Heart_Disease, aes(xintercept=mean(MentalHealth),color="red"),
+             linetype="dashed")
+heart_disease_df_mental_health_1
+
+#Mental health without Heart Disease
+
+no_heart_disease_df_mental_health_1 <- ggplot(no_heart_disease, aes(x=MentalHealth)) + 
+ geom_histogram(aes(y=..density..), colour="black", fill="white")+
+ geom_density(alpha=.2, fill="#FF6666") +
+  labs(title = "Mental Health for people without Heart Disease") +
+  geom_vline(data=no_heart_disease, aes(xintercept=mean(MentalHealth), color="red"),
+             linetype="dashed")
+no_heart_disease_df_mental_health_1
+
+#Physical health without Heart Disease
+
+no_heart_disease_df_PhysicalHealth_ <- ggplot(no_heart_disease, aes(x=PhysicalHealth)) + 
+ geom_histogram(aes(y=..density..), colour="black", fill="white")+
+ geom_density(alpha=.2, fill="#FF6666") +
+  labs(title = "Smoking for people without Heart Disease") +
+  geom_vline(data=no_heart_disease, aes(xintercept=mean(PhysicalHealth), color="red"),
+             linetype="dashed")
+no_heart_disease_df_PhysicalHealth_
+
+#Physical health with Heart Disease
+
+heart_disease_df_PhysicalHealth_ <- ggplot(Heart_Disease, aes(x=PhysicalHealth)) + 
+ geom_histogram(aes(y=..density..), colour="black", fill="white")+
+ geom_density(alpha=.2, fill="#FF6666") +
+  labs(title = "Smoking for people without Heart Disease") +
+  geom_vline(data=Heart_Disease, aes(xintercept=mean(PhysicalHealth), color="red"),
+             linetype="dashed")
+heart_disease_df_PhysicalHealth_
+
+
+
+ggplot(df, aes(x=MentalHealth, y=Smoking)) + 
+  geom_boxplot( colour=c("#ff0000","#11cc11"), outlier.shape=8, outlier.size=4) +
+  labs(title="Mental Health ranking on Smoking Habit", x="MentalHealth", y = "Smoking")
+
+
+
+
+
+p<-ggplot(df, aes(x=Smoking, y=HeartDisease, color=Smoking)) +
+  geom_bar(stat="identity", fill="white") +
+  labs(title="Smoking Habit on Heart Disease", x="Smoking", y = "Heart Disease")+
+  scale_color_brewer(palette="Dark2") 
+  #+ scale_x_discrete(limits=c("No", "Yes")) not working for some reason 
+p
+```
