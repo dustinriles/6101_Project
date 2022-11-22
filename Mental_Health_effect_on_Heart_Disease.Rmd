@@ -160,6 +160,8 @@ table(df$SkinCancer)
 
 #EDA
 
+#Define the range for the skew 
+#histogram 
 
 Heart_Disease <- subset(df, HeartDisease ==1) 
 print(Heart_Disease)
