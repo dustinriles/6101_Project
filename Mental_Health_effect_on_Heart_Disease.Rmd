@@ -319,5 +319,16 @@ df %>%
   summarise(n = n()) %>%
   mutate(freq = n / sum(n))
 
+f1 = subset(df, select = c("BMI", "PhysicalHealth", "MentalHealth", "SleepTime"))
+
+dfcor = cor(df1)
+
+dfcor
+library(ezids)
+library(tidyverse)
+
+loadPkg("corrplot")
+
+corrplot(dfcor, method = 'number')
 
 ```
