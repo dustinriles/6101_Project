@@ -88,6 +88,7 @@ knitr::opts_chunk$set(
 
 options(scientific=T, digits = 3) 
 ```
+
 ```{r setup, include=FALSE}
 setwd('/Users/admin/Documents/GitHub/6101_Project/')
 
@@ -95,6 +96,7 @@ df = data.frame(read.csv('/Users/admin/Documents/GitHub/6101_Project/heart_2020_
 
 lapply(df,function(x) { length(which(is.na(x)))})
 ```
+
 ```{r init_data}
 # Replace No for Heart Disease with 0
 df$HeartDisease[df$HeartDisease == "No"] <- 0
@@ -155,7 +157,19 @@ df$SkinCancer[df$SkinCancer == "No"] <- 0
 # Repalce Yes for Skin Cancer with 1
 df$SkinCancer[df$SkinCancer == "Yes"] <- 1
 table(df$SkinCancer)
+
+# Replace Poor for GenHealth with 0
+df$GenHealth[df$GenHealth == "Poor"] <- 0
+# Replace Fair for GenHealth with 1
+df$GenHealth[df$GenHealth == "Fair"] <- 1
+# Replace Good for GenHealth with 2
+df$GenHealth[df$GenHealth == "Good"] <- 2
+# Replace Very Good for GenHealth with 3
+df$GenHealth[df$GenHealth == "Very Good"] <- 3
+# Replace Excellent for GenHealth with 4
+df$GenHealth[df$GenHealth == "Excellent"] <- 4
 ```
+
 ```{r, results='markup'}
 
 #EDA
@@ -320,8 +334,10 @@ df %>%
   mutate(freq = n / sum(n))
 
 f1 = subset(df, select = c("BMI", "PhysicalHealth", "MentalHealth", "SleepTime"))
+```
 
-dfcor = cor(df1)
+```{r}
+dfcor = cor(df)
 
 dfcor
 library(ezids)
@@ -331,4 +347,9 @@ loadPkg("corrplot")
 
 corrplot(dfcor, method = 'number')
 
+```
+
+```{r}
+model1 <- lm(HeartDisease~MentalHealth, data = df)
+summary(model1)
 ```
