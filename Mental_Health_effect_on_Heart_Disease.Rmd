@@ -333,11 +333,12 @@ df %>%
   summarise(n = n()) %>%
   mutate(freq = n / sum(n))
 
-f1 = subset(df, select = c("BMI", "PhysicalHealth", "MentalHealth", "SleepTime"))
 ```
 
 ```{r}
-dfcor = cor(df)
+df1 = subset(df, select = c("BMI", "PhysicalHealth", "MentalHealth", "SleepTime"))
+
+dfcor = cor(df1)
 
 dfcor
 library(ezids)
