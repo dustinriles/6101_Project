@@ -18,7 +18,7 @@ output:
     toc_depth: '3'
     urlcolor: blue
 ---
-
+According to the CDC, the leading cause of death in the US is heart disease(source). Heart Disease is closely aligned to personal key indicators. Indicators like physical activity, alcohol usage, and smoking can have an impact on someone's chances of developing heart disease. 
 
 ```{r init, include=F}
 # Housekeeping
