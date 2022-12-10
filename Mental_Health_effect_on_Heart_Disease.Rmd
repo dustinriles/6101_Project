@@ -205,7 +205,16 @@ print(Heart_Disease)
 no_heart_disease <- subset(df, HeartDisease ==0)
 print(no_heart_disease)
 
-
+library(dplyr)
+library(MASS)
+df %>%
+  dplyr::select(MentalHealth, PhysicalHealth, BMI, SleepTime) %>%
+  gather(variable, value) %>%
+  ggplot(aes(x = value)) +
+  geom_histogram(fill = "steelblue", color = "black") +
+  facet_wrap(~ variable, scales = "free") + # Free scales so the graphs are readable
+  labs(title = "Histograms of Numeric Variables", x = "Value", y = "Count") +
+  theme_minimal()
 
 ```
 
