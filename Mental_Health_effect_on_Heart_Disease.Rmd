@@ -276,6 +276,7 @@ loadPkg("regclass")
 xkabledply( confusion_matrix(model1), title = "Confusion matrix from Logit Model" )
 unloadPkg("regclass")
 
+
 loadPkg("pROC") # receiver operating characteristic curve, gives the diagnostic ability of a binary classifier system as its discrimination threshold is varied. The curve is on sensitivity/recall/true-positive-rate vs false_alarm/false-positive-rate/fall-out.
 prob=predict(model1, type = "response" )
 df$MentalHealth=prob
@@ -283,9 +284,11 @@ h <- roc(HeartDisease~MentalHealth, data=df)
 auc(h) # area-under-curve prefer 0.8 or higher.
 plot(h)
 
+library(randomForest)
+set.seed(2904)
+rf<-randomForest(HeartDisease~., ntree=100, data=df)
+rf
 
-loadPkg("ResourceSelection") # function hoslem.test( ) for logit model evaluation
-dfLogitHoslem = hoslem.test(df$MentalHealth, fitted(model1)) # Hosmer and Lemeshow test, a chi-squared test
-unloadPkg("ResourceSelection") 
-
+plot(rf$err.rate[,1],type="l",main="Random Forest Error Rate",xlab="Number of Trees")
+varImpPlot(rf,main="Variable Importance Plot for Random Forest")
 ```
