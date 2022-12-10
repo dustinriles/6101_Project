@@ -215,6 +215,8 @@ df %>%
   facet_wrap(~ variable, scales = "free") + # Free scales so the graphs are readable
   labs(title = "Histograms of Numeric Variables", x = "Value", y = "Count") +
   theme_minimal()
+  
+  boxplot(df$MentalHealth,df$PhysicalHealth,df$SleepTime,names=c("Poor MH","Poor PH","Sleep (hrs)"),main="# of Poor Mental/Physical Health Days (Last 30) and Hours of Sleep",horizontal=TRUE)
 
 ```
 
