@@ -259,6 +259,16 @@ xkabledply(fit1, title = paste("model1 :", format(formula(fit1)) ) )
 confint(model1)
 confint.default(model1)
 
+summary(model1)
+AIC(model1)
+AIC(model2)
+
+BIC(model1)
+BIC(model2)
+
+nobs(model1)
+nobs(model2)
+
 #Testing the model
 
 loadPkg("regclass")
