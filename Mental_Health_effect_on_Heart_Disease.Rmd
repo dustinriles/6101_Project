@@ -256,15 +256,26 @@ summary(model1)
 
 xkabledply(fit1, title = paste("model1 :", format(formula(fit1)) ) )
 
-#testing the model
+confint(model1)
+confint.default(model1)
 
-set.seed(3456)
-trainIndex <- createDataPartition(df$MentalHealth, p = .8,
-                                  list = FALSE,
-                                  times = 1)
-Train <- df[ trainIndex,]
-Test <- df[-trainIndex,]
+#Testing the model
+
+loadPkg("regclass")
+# confusion_matrix(model1)
+xkabledply( confusion_matrix(model1), title = "Confusion matrix from Logit Model" )
+unloadPkg("regclass")
+
+loadPkg("pROC") # receiver operating characteristic curve, gives the diagnostic ability of a binary classifier system as its discrimination threshold is varied. The curve is on sensitivity/recall/true-positive-rate vs false_alarm/false-positive-rate/fall-out.
+prob=predict(model1, type = "response" )
+df$MentalHealth=prob
+h <- roc(HeartDisease~MentalHealth, data=df)
+auc(h) # area-under-curve prefer 0.8 or higher.
+plot(h)
 
 
-model_train <- glm(HeartDisease~MentalHealth, data = Train)
+loadPkg("ResourceSelection") # function hoslem.test( ) for logit model evaluation
+dfLogitHoslem = hoslem.test(df$MentalHealth, fitted(model1)) # Hosmer and Lemeshow test, a chi-squared test
+unloadPkg("ResourceSelection") 
+
 ```
