@@ -255,4 +255,16 @@ model1 <- glm(HeartDisease~MentalHealth + BMI + GenHealth, data = df, family = "
 summary(model1)
 
 xkabledply(fit1, title = paste("model1 :", format(formula(fit1)) ) )
+
+#testing the model
+
+set.seed(3456)
+trainIndex <- createDataPartition(df$MentalHealth, p = .8,
+                                  list = FALSE,
+                                  times = 1)
+Train <- df[ trainIndex,]
+Test <- df[-trainIndex,]
+
+
+model_train <- lm(HeartDisease~MentalHealth, data = Train)
 ```
