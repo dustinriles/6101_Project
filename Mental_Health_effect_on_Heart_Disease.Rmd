@@ -231,6 +231,10 @@ df %>%
   labs(title = "Histograms of Numeric Variables", x = "Value", y = "Count") +
   theme_minimal()
   
+  #bar plot count dependent variable (heart disease)
+ggplot(df, aes(x = HeartDisease)) +
+  geom_bar()
+  
   boxplot(df$MentalHealth,df$PhysicalHealth,df$SleepTime,names=c("Poor MH","Poor PH","Sleep (hrs)"),main="# of Poor Mental/Physical Health Days (Last 30) and Hours of Sleep",horizontal=TRUE)
 
 ```
