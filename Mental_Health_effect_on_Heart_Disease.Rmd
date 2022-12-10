@@ -204,6 +204,7 @@ df$Race[df$Race == "Asian"] <- 3
 df$Race[df$Race == "American Indian/Alaskan Native"] <- 4
 # Replace Other for Race with 5
 df$Race[df$Race == "Other"] <- 5
+df$Race <- as.factor(df$Race)
 table(df$Race)
 ```
 
