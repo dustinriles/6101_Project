@@ -191,6 +191,20 @@ df$GenHealth[df$GenHealth == "Excellent"] <- 4
 # Convert GenHealth to factor variable
 df$GenHealth <- as.factor(df$GenHealth)
 table(df$GenHealth)
+
+# Replace White for Race with 0
+df$Race[df$Race == "White"] <- 0
+# Replace Black for Race with 1
+df$Race[df$Race == "Black"] <- 1
+# Replace Hispanic for Race with 2
+df$Race[df$Race == "Hispanic"] <- 2
+# Replace Asian for Race with 3
+df$Race[df$Race == "Asian"] <- 3
+# Replace American Indian/Alaskan Native for Race with 4
+df$Race[df$Race == "American Indian/Alaskan Native"] <- 4
+# Replace Other for Race with 5
+df$Race[df$Race == "Other"] <- 5
+table(df$Race)
 ```
 
 ```{r, results='markup'}
