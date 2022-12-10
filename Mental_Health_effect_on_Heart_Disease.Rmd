@@ -251,7 +251,7 @@ corrplot(dfcor, method = 'number')
 ```
 ```{r}
 table(df$HeartDisease)
-model1 <- lm(HeartDisease~MentalHealth + BMI + GenHealth, data = df, family = "binomial")
+model1 <- glm(HeartDisease~MentalHealth + BMI + GenHealth, data = df, family = "binomial")
 summary(model1)
 
 xkabledply(fit1, title = paste("model1 :", format(formula(fit1)) ) )
@@ -266,5 +266,5 @@ Train <- df[ trainIndex,]
 Test <- df[-trainIndex,]
 
 
-model_train <- lm(HeartDisease~MentalHealth, data = Train)
+model_train <- glm(HeartDisease~MentalHealth, data = Train)
 ```
