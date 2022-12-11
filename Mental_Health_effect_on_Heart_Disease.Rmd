@@ -302,9 +302,7 @@ BIC(model2)
 nobs(model1)
 nobs(model2)
 
-#VIF 
 
-car::vif(model1)
 
 #Testing the model
 
