@@ -98,6 +98,9 @@ lapply(df,function(x) { length(which(is.na(x)))})
 ```
 
 ```{r init_data}
+
+
+
 # Replace No for Heart Disease with 0
 df$HeartDisease[df$HeartDisease == "No"] <- 0
 # Replace Yes for Heart Disease with 1
@@ -191,6 +194,18 @@ df$GenHealth[df$GenHealth == "Excellent"] <- 4
 # Convert GenHealth to factor variable
 df$GenHealth <- as.factor(df$GenHealth)
 table(df$GenHealth)
+
+# Replace No for Diabetic with 0
+df$Diabetic[df$Diabetic == "No"] <- 0
+# Replace Yes for Diabetic with 1
+df$Diabetic[df$Diabetic == "Yes"] <- 1
+# Replace "No, borderline diabetes" with 2
+df$Diabetic[df$Diabetic == "No, borderline diabetes"] <- 2
+# Replace "Yes (during pregnancy) with 3
+df$Diabetic[df$Diabetic == "Yes (during pregnancy)"] <- 3
+# Convert Diabetic to factor variable
+df$Diabetic <- as.factor(df$Diabetic)
+table(df$Diabetic)
 
 # Replace White for Race with 0
 df$Race[df$Race == "White"] <- 0
