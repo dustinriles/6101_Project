@@ -221,6 +221,22 @@ df$Race[df$Race == "American Indian/Alaskan Native"] <- 4
 df$Race[df$Race == "Other"] <- 5
 df$Race <- as.factor(df$Race)
 table(df$Race)
+
+df$AgeCategory[df$AgeCategory == "18-24"] <- 0
+df$AgeCategory[df$AgeCategory == "25-29"] <- 1
+df$AgeCategory[df$AgeCategory == "30-34"] <- 2
+df$AgeCategory[df$AgeCategory == "35-39"] <- 3
+df$AgeCategory[df$AgeCategory == "40-44"] <- 4
+df$AgeCategory[df$AgeCategory == "45-49"] <- 5
+df$AgeCategory[df$AgeCategory == "50-54"] <- 6
+df$AgeCategory[df$AgeCategory == "55-59"] <- 7
+df$AgeCategory[df$AgeCategory == "60-64"] <- 8
+df$AgeCategory[df$AgeCategory == "65-69"] <- 9
+df$AgeCategory[df$AgeCategory == "70-74"] <- 10
+df$AgeCategory[df$AgeCategory == "75-79"] <- 11
+df$AgeCategory[df$AgeCategory == "80 or older"] <- 12
+df$AgeCategory <- as.factor(df$AgeCategory)
+table(df$AgeCategory)
 ```
 
 ```{r, results='markup'}
@@ -269,7 +285,7 @@ corrplot(dfcor, method = 'number')
 ```
 ```{r}
 table(df$HeartDisease)
-model1 <- glm(HeartDisease~MentalHealth + BMI + GenHealth, data = df, family = "binomial")
+model1 <- glm(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Sex + PhysicalHealth, data = df, family = "binomial")
 model2 <- glm(HeartDisease~MentalHealth + BMI + PhysicalHealth, data = df, family = "binomial")
 
 summary(model1)
