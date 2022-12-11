@@ -1,6 +1,6 @@
 ---
 title: "Mental Health Effect on Heart Disease "
-author: "Group_3 Dustin Riles, Nina Ebensperger"
+author: "Group_3 Dustin Riles, Nina Ebensperger, Pon swarnalaya Ravichandran"
 date: "`r Sys.Date()`"
 output:
   html_document:
