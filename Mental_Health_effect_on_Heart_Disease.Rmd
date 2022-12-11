@@ -285,7 +285,7 @@ corrplot(dfcor, method = 'number')
 ```
 ```{r results='markup'}
 table(df$HeartDisease)
-model1 <- glm(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Sex + PhysicalHealth, data = df, family = "binomial")
+model1 <- glm(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Sex + PhysicalHealth + SleepTime, data = df, family = "binomial")
 model2 <- glm(HeartDisease~MentalHealth + BMI + PhysicalHealth, data = df, family = "binomial")
 
 summary(model1)
