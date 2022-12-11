@@ -312,13 +312,6 @@ xkabledply( confusion_matrix(model1), title = "Confusion matrix from Logit Model
 unloadPkg("regclass")
 
 
-loadPkg("pROC") # receiver operating characteristic curve, gives the diagnostic ability of a binary classifier system as its discrimination threshold is varied. The curve is on sensitivity/recall/true-positive-rate vs false_alarm/false-positive-rate/fall-out.
-prob=predict(model1, type = "response" )
-df$MentalHealth=prob
-h <- roc(HeartDisease~MentalHealth, data=df)
-auc(h) # area-under-curve prefer 0.8 or higher.
-plot(h)
-
 set.seed(2904)
 s<-sort(sample(nrow(df),nrow(df)*.8))
 train<-df[s,]
