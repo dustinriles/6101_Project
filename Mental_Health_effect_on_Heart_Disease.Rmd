@@ -334,5 +334,20 @@ rf
 plot(rf$err.rate[,1],type="l",main="Random Forest Error Rate",xlab="Number of Trees")
 varImpPlot(rf,main="Variable Importance Plot for Random Forest")
 rfpred<-predict(rf,test,type="class")
+set.seed(2904)
+s<-sort(sample(nrow(df),nrow(df)*.8))
+train<-df[s,]
+test<-df[-s,]
+rm(s)
+
+library(randomForest)
+set.seed(2904)
+rf<-randomForest(HeartDisease~.,ntree=100,data=train)
+rf
+plot(rf$err.rate[,1],type="l",main="Random Forest Error Rate",xlab="Number of Trees")
+varImpPlot(rf,main="Variable Importance Plot for Random Forest")
+rfpred<-predict(rf,test,type="class")
+rft<-table(test$HeartDisease,rfpred)
+rft
 
 ```
