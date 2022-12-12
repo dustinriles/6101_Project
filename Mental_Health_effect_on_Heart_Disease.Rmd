@@ -100,6 +100,8 @@ Numeric Values
 * Sleep Time
 * Physical Activity 
 
+#Data Editing
+
 ```{r init, include=F}
 # Housekeeping
 #rm(list = ls())
@@ -324,10 +326,13 @@ df$AgeCategory[df$AgeCategory == "80 or older"] <- 12
 df$AgeCategory <- as.factor(df$AgeCategory)
 table(df$AgeCategory)
 ```
+#EDA
+
+Here we did some exploratory data analysis to get an idea of what our variables look like. 
 
 ```{r, results='markup'}
 
-#EDA
+
 
 
 
