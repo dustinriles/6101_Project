@@ -52,13 +52,14 @@ Race: imputed value
 
 Sleep time: On average, how many hours of sleep do you get in a 24-hour period? Numeric 
 
-Lastly, variables were also in certain ranks. This was the case for the variable Age. 
 
 Physical Activity: Adults who reported doing physical activity or exercise during the past 30 days other than their regular job
 
 Mental health: Thinking about your mental health, for how many days during the past 30 days was your mental health not good?
 
 Physical health  : For how many days during the past 30 days was your physical health not good?
+
+Lastly, variables were also in certain ranks. This was the case for the variable Age. 
 
 Our dataset, while originally from the CDC, was taken from Kaggle where it was edited to having 18 variables deemed most relevant to heart health.
 
