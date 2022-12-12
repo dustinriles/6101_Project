@@ -75,6 +75,8 @@ library(tinytex)
 library(GGally, quietly = TRUE)
 library(gplots)
 library(gganimate)
+#install.packages("AICcmodavg")
+library(AICcmodavg)
 ```
 
 
@@ -291,8 +293,7 @@ model.names <- c('model1', 'model2')
 
 summary(model1)
 
-install.packages("AICcmodavg")
-library(AICcmodavg)
+
 
 aictab(cand.set = models, modnames = model.names)
 
