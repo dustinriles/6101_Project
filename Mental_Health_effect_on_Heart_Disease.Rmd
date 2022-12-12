@@ -79,6 +79,7 @@ library(gganimate)
 
 
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
 	message = FALSE,
@@ -87,9 +88,7 @@ knitr::opts_chunk$set(
 )
 
 options(scientific=T, digits = 3) 
-```
 
-```{r setup, include=FALSE}
 setwd('/Users/admin/Documents/GitHub/6101_Project/')
 
 df = data.frame(read.csv('/Users/admin/Documents/GitHub/6101_Project/heart_2020_cleaned.csv'))
@@ -264,8 +263,8 @@ df %>%
   
   #bar plot count dependent variable (heart disease)
 ggplot(df, aes(x = HeartDisease)) +
-  geom_bar()
-
+  geom_bar(fill = "coral") +
+    theme_classic()
 
 ```
 
@@ -284,23 +283,19 @@ corrplot(dfcor, method = 'number')
 
 ```
 ```{r results='markup'}
-table(df$HeartDisease)
 model1 <- glm(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Sex + PhysicalHealth + SleepTime, data = df, family = "binomial")
-model2 <- glm(HeartDisease~MentalHealth + BMI + PhysicalHealth, data = df, family = "binomial")
+model2 <- glm(HeartDisease~AlcoholDrinking + BMI + PhysicalHealth + GenHealth + AgeCategory + SleepTime + Sex, data = df, family = "binomial")
+
+models <- list (model1, model2)
+model.names <- c('model1', 'model2')
 
 summary(model1)
 
-## AIC 
-AIC(model1)
-AIC(model2)
+install.packages("AICcmodavg")
+library(AICcmodavg)
 
-## BIC 
-BIC(model1)
-BIC(model2)
+aictab(cand.set = models, modnames = model.names)
 
-#Number of Observations
-nobs(model1)
-nobs(model2)
 
 
 
@@ -312,28 +307,20 @@ xkabledply( confusion_matrix(model1), title = "Confusion matrix from Logit Model
 unloadPkg("regclass")
 
 
+
 set.seed(2904)
 s<-sort(sample(nrow(df),nrow(df)*.8))
 train<-df[s,]
 test<-df[-s,]
 rm(s)
 
-library(randomForest)
-set.seed(2904)
-rf<-randomForest(HeartDisease~.,ntree=100,data=train)
-rf
-plot(rf$err.rate[,1],type="l",main="Random Forest Error Rate",xlab="Number of Trees")
-varImpPlot(rf,main="Variable Importance Plot for Random Forest")
-rfpred<-predict(rf,test,type="class")
-set.seed(2904)
-s<-sort(sample(nrow(df),nrow(df)*.8))
-train<-df[s,]
-test<-df[-s,]
-rm(s)
+rf2<-randomForest(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Sex + PhysicalHealth + SleepTime,ntree=200,data=df)
+rf2
+
 
 library(randomForest)
 set.seed(2904)
-rf<-randomForest(HeartDisease~.,ntree=100,data=train)
+rf<-randomForest(HeartDisease~.,ntree=200,data=train)
 rf
 plot(rf$err.rate[,1],type="l",main="Random Forest Error Rate",xlab="Number of Trees")
 varImpPlot(rf,main="Variable Importance Plot for Random Forest")
