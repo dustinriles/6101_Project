@@ -77,6 +77,11 @@ library(gplots)
 library(gganimate)
 #install.packages("AICcmodavg")
 library(AICcmodavg)
+library(randomForest)
+library(dplyr)
+library(MASS)
+library(ezids)
+library(tidyverse)
 ```
 
 
@@ -252,8 +257,6 @@ print(Heart_Disease)
 no_heart_disease <- subset(df, HeartDisease ==0)
 print(no_heart_disease)
 
-library(dplyr)
-library(MASS)
 df %>%
   dplyr::select(MentalHealth, PhysicalHealth, BMI, SleepTime) %>%
   gather(variable, value) %>%
@@ -319,7 +322,7 @@ rf2<-randomForest(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Se
 rf2
 
 
-library(randomForest)
+
 set.seed(2904)
 rf<-randomForest(HeartDisease~.,ntree=200,data=train)
 rf
