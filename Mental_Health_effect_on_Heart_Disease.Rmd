@@ -249,13 +249,7 @@ table(df$AgeCategory)
 
 #EDA
 
-#Define the range for the skew 
-#histogram 
 
-Heart_Disease <- subset(df, HeartDisease ==1) 
-print(Heart_Disease)
-no_heart_disease <- subset(df, HeartDisease ==0)
-print(no_heart_disease)
 
 df %>%
   dplyr::select(MentalHealth, PhysicalHealth, BMI, SleepTime) %>%
