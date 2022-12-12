@@ -18,7 +18,71 @@ output:
     toc_depth: '3'
     urlcolor: blue
 ---
-According to the CDC, the leading cause of death in the US is heart disease(source). Heart Disease is closely aligned to personal key indicators. Indicators like physical activity, alcohol usage, and smoking can have an impact on someone's chances of developing heart disease. 
+#Mental Health and Heart Disease 
+
+According to the CDC, the leading cause of death in the US is heart disease(source). Heart Disease is closely aligned to personal key indicators. Indicators like physical activity, alcohol usage, and smoking can have an impact on someone's chances of developing heart disease. There is ample research to suggest that a person's mental health can affect a person's ability to be physically active, or sleep well, or other factors that can lead to heart disease. There is also gorwing research to suggest that mental health can affect heart health by biological pathways as well as behavioral pathways. 
+
+The question becomes:
+
+How does the quality of someone's mental health impact their probability of heart disease and impact other contributing factors to having heart disease?
+
+##About the Dataset
+
+The dataset is originally from the CDC's Behavioral Risk Factor Surveillance System (BRFSS). Which conducts an annual telephone survey on the current health status of U.S. residents. The BRFSS collects the responses from over 400,000 adults living in the U.S. a year. This particular dataset is from 2020 and contains 401,958 rows and 279 columns. 
+
+The survey consisted of questions regarding the status of the survey takers health. The questions were largely an input of yes or no. Please see breakdown of question and Variable below: 
+
+Physical Health: 'For how many days during the past 30 days was your physical health not good?'. 
+
+Mental health: Thinking about your mental health, for how many days during the past 30 days was your mental health not good?
+
+Difficulty Walking: Do you have serious difficulty walking or climbing stairs? 
+
+
+Kidney disease: Not including kidney stones, bladder infection or incontinence, were you ever told you had kidney disease? 
+
+Smoking: have you smoked at least 100 cigarettes in your entire life? 
+
+The respondent would then reply with a yes or no. Other questions gave the survey takers the option to input their response. An example of which was the variable BMI. Lastly, variables were also in certain ranks. This was the case for the variable Age. 
+
+Our dataset, while originally from the CDC, was taken from Kaggle where it was edited to having 18 variables deemed most relevant to heart health. 
+
+# Why this Dataset?
+
+The Personal Key indicators of Heart Disease dataset was chosen for various reasons. 
+
+One being that the data had already been brought down to the 18 most relevant variables. From there we were able to pick out variables for our model. 
+
+Another reason for choosing this dataset was the sample size. With over 400,000 observations, the results can be used to make meaningful inferences about the population.  
+
+The main factor to choosing this dataset was the wide range of methods we could use to make models. There was amble categorical values, factor values, and numeric values to use to create a model. 
+
+Categorical Values Include 
+
+* Heart Disease 
+* Smoking
+* Alcohol Drinking
+* Stroke 
+* Difficultly Walking
+* Sex
+* Diabetic 
+* Asthma
+* Kidney Disease
+* Skin Cancer
+* Race
+
+Factor/Rank Values Include
+
+* Age 
+* General Health
+
+Numeric Values 
+
+* BMI
+* Physical Health 
+* Mental Health 
+* Sleep Time
+* Physical Activity 
 
 ```{r init, include=F}
 # Housekeeping
