@@ -366,7 +366,11 @@ loadPkg("corrplot")
 corrplot(dfcor, method = 'number')
 
 ```
-```{r results='markup'}
+
+
+```{r, results='markup'}
+
+table(df$HeartDisease)
 model1 <- glm(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Sex + PhysicalHealth + SleepTime, data = df, family = "binomial")
 model2 <- glm(HeartDisease~AlcoholDrinking + BMI + PhysicalHealth + GenHealth + AgeCategory + SleepTime + Sex, data = df, family = "binomial")
 
@@ -379,9 +383,15 @@ summary(model1)
 
 aictab(cand.set = models, modnames = model.names)
 
+```
 
+#Model Selection
 
+Using the AICc, we tested which model would be best to select. When replacing mental health wit alcohol drinking from the model we can see that the AIC increases. So we can see that the better model to use includes mental health. Furthermore, model1 is the better model as it carries 100% of the cumulative model weight. 
 
+Nevertheless the AIC is relatively high at 150349.
+
+```{r, results='markup'}
 #Testing the model
 
 loadPkg("regclass")
@@ -389,8 +399,12 @@ loadPkg("regclass")
 xkabledply( confusion_matrix(model1), title = "Confusion matrix from Logit Model" )
 unloadPkg("regclass")
 
+```
+#Confusion Matrix 
+ 
+As we can see in the confusion matrix, the logit model, model1 does not affect the target variable (heart disease) significantly. In the confusion matrix, we can calculate that the accuracy of this model is high at 91.5%. The misclassification rate is at 8.6% which is not a high amount of errors. 
 
-
+```{r, results='markup'}
 set.seed(2904)
 s<-sort(sample(nrow(df),nrow(df)*.8))
 train<-df[s,]
@@ -412,3 +426,4 @@ rft<-table(test$HeartDisease,rfpred)
 rft
 
 ```
+
