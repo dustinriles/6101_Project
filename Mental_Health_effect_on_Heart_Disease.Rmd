@@ -411,8 +411,10 @@ train<-df[s,]
 test<-df[-s,]
 rm(s)
 
-rf2<-randomForest(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Sex + PhysicalHealth + SleepTime,ntree=200,data=df)
+
+rf2<-randomForest(HeartDisease~MentalHealth + BMI + GenHealth + AgeCategory + Sex + PhysicalHealth + SleepTime,ntree=200,data=train)
 rf2
+
 
 
 
@@ -426,4 +428,15 @@ rft<-table(test$HeartDisease,rfpred)
 rft
 
 ```
+# Random Forests 
 
+Since our data is highly unbalanced, we decided a random forest would be best to use as it is more powerful in its accuracy than a standard decision tree. 
+
+I choose to make a random forest that contains 200 trees, and while each tree may be over-fitted on its own. The final result considering all the trees together, will be as prone to the over fitting. The first step I did was split the dataset into train and test where 80% of the data will be used for training and the other 20% will be used for testing. 
+
+We can see that we used every 4 variables at every split, coming from the square-root of 18. Which increases the randomness of our algorithm. 
+
+After running the train data in the random forest model using the same variables as our logit model, we find that the results are still not ideal. We find that the Accuracy rate for the random forest is at 91.5%. The recall rate is at 1.7% which is too low. The precision is at 49.7% which is higher than the previous model but could be better. Additionally, the misclassification rate is at a 8.59%. Lastly we can see that our false negative rate is at 98.32%, meaning that 98.32% of the cases that were positive were falsely classified as being negatives. This is an extremely high error rate and we will have to make another model.  
+
+
+Therefore, we decieded to use all variables to improve the precision of the model. In comparison, the second random forest had  precision rate of 51.8% and a misclassification rate at 8.53%. With a accuracy rate of 91.5% and a recall of 8.81%. Furthermore, our false negative rate is at 0.92, meaning that 92% of the cases that were positive were falsely classified as negatives. This is still fairly high, but we can see it is lower than our previous models. We can conclude that this model is the better model to use to explain our target variable. 
