@@ -480,8 +480,8 @@ Heart Disease and Mental Health Disorders. (2020, May 6). CDC. https://www.cdc.g
 
 ## Data dictionary
 
-+---------------+-------+--------------------------------------------+
-|Variable       | Codes | Description        |
++----------------+-------+--------------------------------------------+
+|Variable        | Codes | Description        |
 +================+=======+============================================+
 |Heart Disease   |   0   | No  | 
 |                |   1   | Yes |    
