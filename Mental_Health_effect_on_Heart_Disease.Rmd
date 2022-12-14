@@ -20,6 +20,8 @@ output:
 ---
 #Mental Health and Heart Disease 
 
+![](Heart_disease.jpg)
+
 According to the CDC, heart disease is the leading cause of death in the United States averaging nearly 700,000 annual fatalities (source). Heart Disease is closely aligned to personal key indicators. Indicators like physical activity, alcohol usage, and smoking can have an impact on someone's chances of developing heart disease. There is ample research to suggest that a person's mental health can affect a person's ability to be physically active, or sleep well, or other factors that can lead to heart disease. There is also gorwing research to suggest that mental health can affect heart health by biological pathways as well as behavioral pathways. 
 
 The question becomes:
