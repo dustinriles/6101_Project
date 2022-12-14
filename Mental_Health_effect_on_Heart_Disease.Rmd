@@ -20,7 +20,7 @@ output:
 ---
 #Mental Health and Heart Disease 
 
-According to the CDC, the leading cause of death in the US is heart disease(source). Heart Disease is closely aligned to personal key indicators. Indicators like physical activity, alcohol usage, and smoking can have an impact on someone's chances of developing heart disease. There is ample research to suggest that a person's mental health can affect a person's ability to be physically active, or sleep well, or other factors that can lead to heart disease. There is also gorwing research to suggest that mental health can affect heart health by biological pathways as well as behavioral pathways. 
+According to the CDC, heart disease is the leading cause of death in the United States averaging nearly 700,000 annual fatalities (source). Heart Disease is closely aligned to personal key indicators. Indicators like physical activity, alcohol usage, and smoking can have an impact on someone's chances of developing heart disease. There is ample research to suggest that a person's mental health can affect a person's ability to be physically active, or sleep well, or other factors that can lead to heart disease. There is also gorwing research to suggest that mental health can affect heart health by biological pathways as well as behavioral pathways. 
 
 The question becomes:
 
@@ -28,9 +28,9 @@ How does the quality of someone's mental health impact their probability of hear
 
 ##About the Dataset
 
-The dataset is originally from the CDC's Behavioral Risk Factor Surveillance System (BRFSS). Which conducts an annual telephone survey on the current health status of U.S. residents. The BRFSS collects the responses from over 400,000 adults living in the U.S. a year. This particular dataset is from 2020 and contains 401,958 rows and 279 columns. 
+The dataset is originally from the CDC's Behavioral Risk Factor Surveillance System (BRFSS). Some basic facts about the survey is that it began in 1984, is conducted annually, and is participants are reached by telephone. The goal is to collect information on the current health status of U.S. residents. Each year the BRFSS collects responses from over 400,000 living adults. For the year we examone. 2020, the data set contains 401,958 rows and 279 columns. 
 
-The survey consisted of questions regarding the status of the survey takers health. The questions were largely an input of yes or no. Please see breakdown of question and Variable below: 
+The survey consisted of questions regarding the status of the survey takers health. For the majority of questions, respondents were simply asked to provide a "yes" or "no" answer. The following provides a breakdown of variables and questions: 
 
 Physical Health: 'For how many days during the past 30 days was your physical health not good?'. 
 
