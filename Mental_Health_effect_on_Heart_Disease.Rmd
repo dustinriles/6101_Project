@@ -18,7 +18,7 @@ output:
     toc_depth: '3'
     urlcolor: blue
 ---
-#Mental Health and Heart Disease 
+# Mental Health and Heart Disease 
 
 ![](Heart_disease.jpg)
 
@@ -102,7 +102,7 @@ Numeric Values
 * Sleep Time
 * Physical Activity 
 
-#Data Editing
+# Data Editing
 
 ```{r init, include=F}
 # Housekeeping
@@ -332,7 +332,7 @@ table(df$AgeCategory)
 This data editing is needed to address what was said in the in the about the data set section. A majority of variables are in the form of "yes" or "no" answers. For variables were this is the case, no's were recoded to 0s and yes's were recoded to 0's. For variables such as race and age category, answers were not numerical but had more than one category. For these, they were recoded into numbers and then the variable was converted into a factor. In our regression analysis, converting the variables to factors proves a good stretgy to easily include them in the regression and produce useful coefficients. A table command was added after every variable that was changed to verify that variables were properly recoded.
 
 
-#EDA
+# EDA
 
 Here we did some exploratory data analysis to get an idea of what our variables look like. 
 
@@ -399,7 +399,7 @@ aictab(cand.set = models, modnames = model.names)
 
 ```
 
-#Model Selection
+# Model Selection
 
 Using the AICc, we tested which model would be best to select. When replacing mental health wit alcohol drinking from the model we can see that the AIC increases. So we can see that the better model to use includes mental health. Furthermore, model1 is the better model as it carries 100% of the cumulative model weight. 
 
@@ -414,7 +414,7 @@ xkabledply( confusion_matrix(model1), title = "Confusion matrix from Logit Model
 unloadPkg("regclass")
 
 ```
-#Confusion Matrix 
+# Confusion Matrix 
  
 As we can see in the confusion matrix, the logit model, model1 does not affect the target variable (heart disease) significantly. In the confusion matrix, we can calculate that the accuracy of this model is high at 91.5%. The misclassification rate is at 8.6% which is not a high amount of errors. 
 
@@ -457,7 +457,7 @@ Therefore, we decieded to use all variables to improve the precision of the mode
 
 Supplemental to the random forest, we included two graphs. One to show that the error rate of the forest levels out at 100 trees and is fairly low. The other to demonstrate the most important variables. As you can see, the most influential variables are BMI, Age, and Sleep time. We did see that sleep time and mental health have a small relationship in the correlation plot. Additionally we can see that mental health is a significant variable. It is the 6th most important variable in a sent of 18 variables. In sum, our best model was the last random forrest showing that BMI, Age, and Sleep time hold the most predictive power in having heart disease. 
 
-#Limitations 
+# Limitations 
 
 While our model has a high accuracy rate in predicting heart disease, there were a few limitations. 
 
@@ -467,11 +467,11 @@ While our model has a high accuracy rate in predicting heart disease, there were
 * People who already tested for Heart Disease by the time of the survey may already be taking steps to improve their health. So variables like physical health and mental health may not be enough to predict heart disease. 
 * The size of our dataset means more chances for outliers or incorrectly recorded observations. For example, someone who inputs their BMI might incorrectly imput their weight. 
 
-#Future work 
+# Future work 
 
 * In the future we would like to use other prediction models to see if an individual at a certain time could be at risk of hart disease regardless of their mental health. 
 
-#Conslusion 
+# Conslusion 
 
 We began this project with the intent to look at risk factors for heart disease. Using data collected from the CDC's Behavioral Risk Factor Surveillance System survey. Specifically we looked at the connection between mental health and heart disease. To do so, we created a logit regression as we were working with classifying data. Our logit regression showed that the more number of days people reported as having poor mental health, the higher chance there is of having heart disease. While the coefficient was statistically significant, the overall model did not produce significant results. This was tested with a random forest. While using the same variables as our logit regression, we found that the was the ability to obtain stronger results. We then chose to make a random forest with all variables to see which personal key indicators were the better predictors than mental health. After doing so we were able to create a model with the best results. Additionally, our model showed that that BMI, Age, and Sleep Time were the most significant predictors. Finally, while mental health may not be the most important factor in predicting heart disease, it is stll the 6h most significant personal key indicator for heart disease. Given the amount of variables we used, this still makes it a rather important variable.
 
