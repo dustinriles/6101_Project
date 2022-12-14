@@ -335,6 +335,18 @@ This data editing is needed to address what was said in the in the about the dat
 Here we did some exploratory data analysis to get an idea of what our variables look like. 
 
 ```{r, results='markup'}
+  
+  #bar plot count dependent variable (heart disease)
+ggplot(df, aes(x = HeartDisease)) +
+  geom_bar(fill = "coral") +
+    theme_classic()
+
+table(df$HeartDisease)
+
+```
+This graph shows the basic counts of our dependent variable, whether someone has heart disease or not. As is easily seen, an exceptionally large majority of respondent answered no to having heart disease. By adding a table function, we can see that 27,373 respondents have heart disease and 292,422 do not. This comes out to 8.6% of the sample having heart disease.
+
+```{r, results='markup'}
 
 df %>%
   dplyr::select(MentalHealth, PhysicalHealth, BMI, SleepTime) %>%
@@ -344,16 +356,8 @@ df %>%
   facet_wrap(~ variable, scales = "free") + # Free scales so the graphs are readable
   labs(title = "Histograms of Numeric Variables", x = "Value", y = "Count") +
   theme_minimal()
-  
-  #bar plot count dependent variable (heart disease)
-ggplot(df, aes(x = HeartDisease)) +
-  geom_bar(fill = "coral") +
-    theme_classic()
-
-table(df$HeartDisease)
 ```
-
-This graph shows the basic counts of our dependent variable, whether someone has heart disease or not. As is easily seen, an exceptionally large majority of respondent answered no to having heart disease. By adding a table function, we can see that 27,373 respondents have heart disease and 292,422 do not. This comes out to 8.6% of the sample having heart disease.
+Here we present histograms of our 4 numeric variable. BMI has a mostly normal distribution clustered around 26/27; there is a small skew to the right that should be noted. Mental health and physical health display similar values in their histograms, this is due to the nature of their questions. They both as about how many days a type of health was bad in the past 30 days. The vast majority of respondents say 0, but then next most popular value is the other extreme, 30. There are also a noticeable, but still small number of respondents that say 1 or 2 days. Lastly, sleep time sort of resembles a normal distribution, but is mostly just two values, 7 and 8, that are commonly reported.
 
 ```{r}
 df1 = subset(df, select = c("BMI", "PhysicalHealth", "MentalHealth", "SleepTime"))
