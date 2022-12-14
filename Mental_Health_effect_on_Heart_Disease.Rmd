@@ -325,6 +325,9 @@ df$AgeCategory[df$AgeCategory == "75-79"] <- 11
 df$AgeCategory[df$AgeCategory == "80 or older"] <- 12
 df$AgeCategory <- as.factor(df$AgeCategory)
 table(df$AgeCategory)
+
+This data editing is needed to address what was said in the in the about the data set section. A majority of variables are in the form of "yes" or "no" answers. For variables were this is the case, no's were recoded to 0s and yes's were recoded to 0's. For variables such as race and age category, answers were not numerical but had more than one category. For these, they were recoded into numbers and then the variable was converted into a factor. In our regression analysis, converting the variables to factors proves a good stretgy to easily include them in the regression and produce useful coefficients.
+
 ```
 #EDA
 
