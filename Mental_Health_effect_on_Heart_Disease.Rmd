@@ -467,3 +467,17 @@ While our model has a high accuracy rate in predicting heart disease, there were
 CDC. (2022, September 6). Leading Causes of Death. National Center for Health Statistics. https://www.cdc.gov/nchs/fastats/leading-causes-of-death.htm
 
 Heart Disease and Mental Health Disorders. (2020, May 6). CDC. https://www.cdc.gov/heartdisease/mentalhealth.htm
+
+## Data dictionary
+
++---------------+-------+--------------------------------------------+
+|Variable       | Codes | Description        |
++==========+=======+============================================+
+|Heart Disease  |   0   | No  | 
+|               |   1   | Yes |    
++----------+-------+---------------------------------------------+
+|Smoking        |   0   | No            |
+|               |   1   | Yes           |
++----------+-------+---------------------------------------------+
+|AlcoholDrinking|   0   | No            |
+|               |   1   | Yes           |
