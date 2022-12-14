@@ -521,6 +521,8 @@ Heart Disease and Mental Health Disorders. (2020, May 6). CDC. https://www.cdc.g
 +----------------+-------+---------------------------------------------+
 |Diabetic        |   0   | No            |
 |                |   1   | Yes           |
+|                |   2   | No, bordeline diabetes           |
+|                |   3   | Yes (during pregnancy)           |
 +----------------+-------+---------------------------------------------+
 |Race            |   0   | White           |
 |                |   1   | Black           |
