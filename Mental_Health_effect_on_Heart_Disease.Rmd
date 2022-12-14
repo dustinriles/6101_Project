@@ -28,7 +28,7 @@ The question becomes:
 
 How does the quality of someone's mental health impact their probability of heart disease and impact other contributing factors to having heart disease?
 
-##About the Dataset
+## About the Dataset
 
 The dataset is originally from the CDC's Behavioral Risk Factor Surveillance System (BRFSS). Some basic facts about the survey is that it began in 1984, is conducted annually, and is participants are reached by telephone. The goal is to collect information on the current health status of U.S. residents. Each year the BRFSS collects responses from over 400,000 living adults. For the year we examone. 2020, the data set contains 401,958 rows and 279 columns. 
 
@@ -375,7 +375,7 @@ loadPkg("corrplot")
 corrplot(dfcor, method = 'number')
 
 ```
-#Confusion Matrix 
+# Confusion Matrix 
  
 As we can see in the confusion matrix, the logit model, model1 does not affect the target variable (heart disease) significantly. In the confusion As we can see in the confusion matrix, the logit model, model1, does not affect the target variable (heart disease) significantly. In the confusion matrix, we can calculate that the accuracy of this model is high at 91.5%. The misclassification rate is at 8.6%, meaning that the model is wrong 8.6%. However the recall is at 4.8%, which means of the cases that were positive only 4.8% were classified correctly. Additionally the precision of the model is at 48.97%. This means that when the case is yes, the model accurately predicts yes 48.97% of the time. 
 
