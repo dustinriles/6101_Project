@@ -447,3 +447,8 @@ After running the train data in the random forest model using the same variables
 Therefore, we decieded to use all variables to improve the precision of the model. In comparison, the second random forest had  precision rate of 51.8%.  With an accuracy rate of 91.5% and a recall of 8.81%. Furthermore, our false negative rate is at 0.92, meaning that 92% of the cases that were positive were falsely classified as negatives. This is still fairly high, but we can see it is lower than our previous models. The misclassification rate at 8.53%, so it is making the same amount of mistakes as the previous random forest. Nevertheless, we can conclude that this model is the better model to use to explain our target variable. 
 
 Supplemental to the random forest, we included two graphs. One to show that the error rate of the forest levels out at 100 trees and is fairly low. The other to demonstrate the most important variables. As you can see, the most influential variables are BMI, Age, and Sleep time. We did see that sleep time and mental health have a small relationship in the correlation plot. 
+
+# References 
+CDC. (2022, September 6). Leading Causes of Death. National Center for Health Statistics. https://www.cdc.gov/nchs/fastats/leading-causes-of-death.htm
+
+Heart Disease and Mental Health Disorders. (2020, May 6). CDC. https://www.cdc.gov/heartdisease/mentalhealth.htm
