@@ -368,7 +368,7 @@ corrplot(dfcor, method = 'number')
 ```
 #Confusion Matrix 
  
-As we can see in the confusion matrix, the logit model, model1 does not affect the target variable (heart disease) significantly. In the confusion matrix, we can calculate that the accuracy of this model is high at 91.5%. The misclassification rate is at 8.6% which is not a high amount of errors. However the recall is at 4.8% which means of the cases that were positive only 4.8% were classified correctly. Additionally the precision of the model is at 48.97% which should be higher. 
+As we can see in the confusion matrix, the logit model, model1 does not affect the target variable (heart disease) significantly. In the confusion As we can see in the confusion matrix, the logit model, model1, does not affect the target variable (heart disease) significantly. In the confusion matrix, we can calculate that the accuracy of this model is high at 91.5%. The misclassification rate is at 8.6%, meaning that the model is wrong 8.6%. However the recall is at 4.8%, which means of the cases that were positive only 4.8% were classified correctly. Additionally the precision of the model is at 48.97%. This means that when the case is yes, the model accurately predicts yes 48.97% of the time. 
 
 With that analysis, we decided to move our Logit model to a random forest. 
 
